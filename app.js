@@ -2,19 +2,19 @@
      let popList = document.getElementById("todo-list")
     let arrayOfTodos = [
         {
-        "userId": 14,
+        "userId": 5,
         "id": 1,
         "title": "delectus aut autem",
         "completed": false
     },
     {
-        "userId": 20,
+        "userId": 10,
         "id": 2,
         "title": "delectus aut autem",
         "completed": false
     }]
-    console.log(arrayOfTodos[0].userId) // => 14
-    console.log(arrayOfTodos[1].userId) // => 20
+    console.log(arrayOfTodos[0].userId) // => 5
+    console.log(arrayOfTodos[1].userId) // => 10
     
     const fetchTodos = () => {
 
@@ -43,57 +43,116 @@
         console.log('arrayOfTodos IN POPULATE', arrayOfTodos)
         for (let i = 0; i < arrayOfTodos.length; i++) {
             const todo = arrayOfTodos[i];
-            console.log('todo:',todo)
-            console.log('todo["title"]:', todo['title'])
-            let userTitle = document.createElement("LI")
+            let parentElement = document.getElementById('todo-list')
+            console.log('parentElement:', parentElement)
+            let listItem = document.createElement('li')
+            console.log('listItem:', listItem)
+            let text = document.createTextNode(todo.title)
+            console.log('text', text)
+            listItem.appendChild(text)
+            
+            parentElement.appendChild(listItem)
+           
         }
-    }
+    };
+
+    
+        
+        const filterTodos = () => {
+            console.log('filterTODOS')
+            // function clearBox(elementID)
+            let newList = document.getElementById('todo-list').innerHTML = ""
+
+            let inputElement = document.getElementById('id-input')
+
+            let inputValue = document.querySelector('input').value;
+            console.log(inputValue);
+
+            for (let i = 0; i < arrayOfTodos; i++) {
+                const todo = arrayOfTodos[i];
+                console.log('todo.uderId:', todo.userId)
+                let userId = document.createElement('LI')
+                userId.innerHTML = todo.userId
+                inputElement.appendChild(userId)
+            }
+            // clear elements on page
+            // get input element by id
+            // get input value
+            // filter through array of todos to find userId === input.value
+          
+            // get ol parent element
+            // create list item
+            // create textNode and add filtered todo.title
+            //append textNode to list item
+            // append list item to parent element
+          
+          }
+
+          const completedTodos = () => {
+            console.log('completedTODOS')
+            // function clearBox(elementID)
+            let newList = document.getElementById('todo-list').innerHTML = ""
+
+            let inputElement = document.getElementById('id-input')
+
+            let inputValue = document.querySelector('input').value;
+            console.log(inputValue);
+
+            for (let i = 0; i < arrayOfTodos; i++) {
+                const todo = arrayOfTodos[i];
+                console.log('todo.uderId:', todo.userId)
+                let userId = document.createElement('LI')
+                userId.innerHTML = todo.userId
+                inputElement.appendChild(userId)
+            }
+            // clear elements on page
+            // get input element by id
+            // get input value
+            // filter through array of todos to find userId === input.value
+          
+            // get ol parent element
+            // create list item
+            // create textNode and add filtered todo.title
+            //append textNode to list item
+            // append list item to parent element
+          
+          }
+          
+          const incompletedTodos = () => {
+            console.log('incompletedTODOS')
+            // function clearBox(elementID)
+            let newList = document.getElementById('todo-list').innerHTML = ""
+
+            let inputElement = document.getElementById('id-input')
+
+            let inputValue = document.querySelector('input').value;
+            console.log(inputValue);
+
+            for (let i = 0; i < arrayOfTodos; i++) {
+                const todo = arrayOfTodos[i];
+                console.log('todo.uderId:', todo.userId)
+                let userId = document.createElement('LI')
+                userId.innerHTML = todo.userId
+                inputElement.appendChild(userId)
+            }
+            // clear elements on page
+            // get input element by id
+            // get input value
+            // filter through array of todos to find userId === input.value
+          
+            // get ol parent element
+            // create list item
+            // create textNode and add filtered todo.title
+            //append textNode to list item
+            // append list item to parent element
+          
+          }
+          
+    
+
 
 
 
 
 
     
-    //         // console.log('todo.title:', todo.title)
-    //         // userTitle.innerHTML = todo.title
-    //         // popList.appendChild(userTitle)
-    //         // let spacebar = document.createElement("BR")
-    //         // let userIDInsert = document.createTextNode(todo.userId)
-    //         // let IDInsert = document.createTextNode(todo.completed)
-    //         // popList.append("User ID: ", userIDInsert, spacebar, " ID: ", IDInsert, spacebar, " Completed ", completed)
-    //         let JuanVar =    
-    //         <p>
-    //         Title: ${todo.title}
-    //         </p>
-    //         <p>
-    //         User ID: ${todo.userId}    
-    //         </p>
-    //         <p>
-    //         Completed: ${todo.completed}
-    //         </p>
-            
-
-    //         popList.insertAdjacentHTML("beforeend", JuanVar)
-    //  }
-    //     // arrayOfTodos.forEach(element ==> {
-            
-    //     // })
-    // };
-    
-    // const arrayOfTodos1 = [
-    //     {
-    //     "userId": 14,
-    //     "id": 1,
-    //     "title": "delectus aut autem",
-    //     "completed": false
-    // },
-    // {
-    //     "userId": 20,
-    //     "id": 2,
-    //     "title": "delectus aut autem",
-    //     "completed": false
-    // }
-    // ]
-
-    // console.log(arrayOfTodos[0].userId) // => 14
-    // console.log(arrayOfTodos[1].userId) // => 20
