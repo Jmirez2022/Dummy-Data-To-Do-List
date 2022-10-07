@@ -5,7 +5,7 @@
         "userId": 5,
         "id": 1,
         "title": "delectus aut autem",
-        "completed": false
+        "completed": true
     },
     {
         "userId": 10,
@@ -39,10 +39,13 @@
         console.log(arrayOfTodos)
     }
     
-    const populateTodos = () => {
-        console.log('arrayOfTodos IN POPULATE', arrayOfTodos)
-        for (let i = 0; i < arrayOfTodos.length; i++) {
-            const todo = arrayOfTodos[i];
+    const populateTodos = (todoArray) => { 
+        if(!todoArray){
+          todoArray = arrayOfTodos
+        }
+        console.log('arrayOfTodos IN POPULATE', todoArray)
+        for (let i = 0; i < todoArray.length; i++) {
+            const todo = todoArray[i];
             let parentElement = document.getElementById('todo-list')
             console.log('parentElement:', parentElement)
             let listItem = document.createElement('li')
@@ -65,16 +68,23 @@
 
             let inputElement = document.getElementById('id-input')
 
-            let inputValue = document.querySelector('input').value;
+            let inputValue = inputElement.value;
             console.log(inputValue);
-
-            for (let i = 0; i < arrayOfTodos; i++) {
-                const todo = arrayOfTodos[i];
-                console.log('todo.uderId:', todo.userId)
-                let userId = document.createElement('LI')
-                userId.innerHTML = todo.userId
-                inputElement.appendChild(userId)
-            }
+            let filteredTodos = arrayOfTodos.filter(todo => {
+              console.log("todo",todo)
+              if(todo.userId === Number(inputValue)){
+                return todo
+              }
+            })
+            populateTodos(filteredTodos)
+            console.log("arrayOfTodos",arrayOfTodos)
+            // for (let i = 0; i < arrayOfTodos.length; i++) {
+            //     const todo = arrayOfTodos[i];
+            //     console.log('todo.uderId:', todo.userId)
+            //     let userId = document.createElement('LI')
+            //     userId.innerHTML = todo.userId
+            //     inputElement.appendChild(userId)
+            // }
             // clear elements on page
             // get input element by id
             // get input value
@@ -93,18 +103,13 @@
             // function clearBox(elementID)
             let newList = document.getElementById('todo-list').innerHTML = ""
 
-            let inputElement = document.getElementById('id-input')
-
-            let inputValue = document.querySelector('input').value;
-            console.log(inputValue);
-
-            for (let i = 0; i < arrayOfTodos; i++) {
-                const todo = arrayOfTodos[i];
-                console.log('todo.uderId:', todo.userId)
-                let userId = document.createElement('LI')
-                userId.innerHTML = todo.userId
-                inputElement.appendChild(userId)
-            }
+            let filteredTodos = arrayOfTodos.filter(todo => {
+              console.log("todo",todo)
+              if(todo.completed){
+                return todo
+              }
+            })
+            populateTodos(filteredTodos)
             // clear elements on page
             // get input element by id
             // get input value
@@ -123,18 +128,13 @@
             // function clearBox(elementID)
             let newList = document.getElementById('todo-list').innerHTML = ""
 
-            let inputElement = document.getElementById('id-input')
-
-            let inputValue = document.querySelector('input').value;
-            console.log(inputValue);
-
-            for (let i = 0; i < arrayOfTodos; i++) {
-                const todo = arrayOfTodos[i];
-                console.log('todo.uderId:', todo.userId)
-                let userId = document.createElement('LI')
-                userId.innerHTML = todo.userId
-                inputElement.appendChild(userId)
-            }
+            let filteredTodos = arrayOfTodos.filter(todo => {
+              console.log("todo",todo)
+              if(!todo.completed){
+                return todo
+              }
+            })
+            populateTodos(filteredTodos)
             // clear elements on page
             // get input element by id
             // get input value
